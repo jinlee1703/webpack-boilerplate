@@ -3,6 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: "development",
+    devtool: 'inline-source-map',
     entry: {
         index: "./source/js/index.js",
         about: "./source/js/about.js",
@@ -17,14 +18,16 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
-                    'babel-loader'
+                    'babel-loader',
+                    'source-map-loader'
                 ]
             },
             {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'source-map-loader'
                 ]
             }
         ],
