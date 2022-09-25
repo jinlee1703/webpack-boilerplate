@@ -5,11 +5,11 @@ module.exports = {
     mode: "development",
     devtool: 'inline-source-map',
     entry: {
-        index: "./source/js/index.js",
-        about: "./source/js/about.js",
+        index: "./src/js/index.js",
+        about: "./src/js/about.js",
     },
     output: {
-        path: path.resolve(__dirname, "./public/js"),
+        path: path.resolve(__dirname, "./dist/js"),
         filename: "[name]_bundle.js",
     },
     module: {
@@ -29,24 +29,32 @@ module.exports = {
                     'css-loader',
                     'source-map-loader'
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: '../asset',
+                },
+            },
         ],
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: './source/index.html',
+            template: './src/index.html',
             filename: '../index.html',
             chunks: ['index'],
         }),
         new HTMLWebpackPlugin({
-            template: './source/about.html',
+            template: './src/about.html',
             filename: '../about.html',
             chunks: ['about'],
-        })
+        }),
     ],
     devServer: {
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, 'dist'),
         },
         compress: true,
         port: 9000,

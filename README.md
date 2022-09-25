@@ -63,7 +63,7 @@ webpack-boilerplate
 npm install
 ```
 
-### 특징 및 기능
+### 특징
 
 - webpack 구성
 - webpack DevServer 적용
@@ -71,7 +71,12 @@ npm install
 - source-map 연동
 - 각 리소스의 역할에 따른 디렉터리 분리
 - boilerplate 구조로 작성하여 다음 프로젝트에서 사용할 수 있도록 함
-- image 파일 번들링 미지원
+
+### 지원 파일
+
+- 자바스크립트 파일 : .js
+- 스타일시트 파일 : .css
+- 이미지 파일 : .png, .jpeg, jpg, .gif
 
 ---
 
